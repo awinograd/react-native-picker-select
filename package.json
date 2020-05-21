@@ -26,7 +26,7 @@
         "src/index.js"
     ],
     "dependencies": {
-        "lodash.isequal": "^4.5.0"
+        "lodash": "^4.0.0"
     },
     "devDependencies": {
         "babel-jest": "^23.6.0",

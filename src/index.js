@@ -13,7 +13,7 @@ import {
     View,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import isEqual from 'lodash.isequal';
+import isEqual from 'lodash/isEqual';
 
 export default class RNPickerSelect extends PureComponent {
     static propTypes = {
