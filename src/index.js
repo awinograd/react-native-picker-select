@@ -9,63 +9,10 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import PropTypes from 'prop-types';
 import isEqual from 'lodash/isEqual';
 import { defaultStyles } from './styles';
 
 export default class RNPickerSelect extends PureComponent {
-    static propTypes = {
-        onValueChange: PropTypes.func.isRequired,
-        items: PropTypes.arrayOf(
-            PropTypes.shape({
-                label: PropTypes.string.isRequired,
-                value: PropTypes.any.isRequired,
-                key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-                color: PropTypes.string,
-                displayValue: PropTypes.bool,
-            })
-        ).isRequired,
-        value: PropTypes.any, // eslint-disable-line react/forbid-prop-types
-        placeholder: PropTypes.shape({
-            label: PropTypes.string,
-            value: PropTypes.any,
-            key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            color: PropTypes.string,
-        }),
-        disabled: PropTypes.bool,
-        itemKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        style: PropTypes.shape({}),
-        children: PropTypes.any, // eslint-disable-line react/forbid-prop-types
-        onOpen: PropTypes.func,
-        useNativeAndroidPickerStyle: PropTypes.bool,
-
-        // Custom Modal props (iOS only)
-        doneText: PropTypes.string,
-        onDonePress: PropTypes.func,
-        onUpArrow: PropTypes.func,
-        onDownArrow: PropTypes.func,
-        onClose: PropTypes.func,
-
-        // Modal props (iOS only)
-        modalProps: PropTypes.shape({}),
-
-        // TextInput props
-        textInputProps: PropTypes.shape({}),
-
-        // Picker props
-        pickerProps: PropTypes.shape({}),
-
-        // Touchable Done props (iOS only)
-        touchableDoneProps: PropTypes.shape({}),
-
-        // Touchable wrapper props
-        touchableWrapperProps: PropTypes.shape({}),
-
-        // Custom Icon
-        Icon: PropTypes.func,
-        InputAccessoryView: PropTypes.func,
-    };
-
     static defaultProps = {
         value: undefined,
         placeholder: {
