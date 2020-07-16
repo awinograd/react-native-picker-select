@@ -13,7 +13,7 @@ For Android, by default we are using the native Picker component. If you prefer,
 
 For either platform, you can alternatively pass down a child element of your choice that will be wrapped in a touchable area.
 
-![iOS Example](./example/ios-example.gif) ![Android Example](./example/android-example.gif)
+![iOS Example](./ex-ios.gif) ![Android Example](./ex-android.gif)
 
 ## [View examples on snack.expo.io](https://snack.expo.io/@lfkwtz/react-native-picker-select)
 
@@ -29,17 +29,17 @@ For either platform, you can alternatively pass down a child element of your cho
 import RNPickerSelect from 'react-native-picker-select';
 
 export const Dropdown = () => {
-  return (
-    <RNPickerSelect
-      onValueChange={(value) => console.log(value)}
-      items={[
-        { label: 'Football', value: 'football' },
-        { label: 'Baseball', value: 'baseball' },
-        { label: 'Hockey', value: 'hockey' },
-      ]}
-    />
-  )
-}
+    return (
+        <RNPickerSelect
+            onValueChange={(value) => console.log(value)}
+            items={[
+                { label: 'Football', value: 'football' },
+                { label: 'Baseball', value: 'baseball' },
+                { label: 'Hockey', value: 'hockey' },
+            ]}
+        />
+    );
+};
 ```
 
 ### Versioning
@@ -54,7 +54,7 @@ export const Dropdown = () => {
 | Name                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Details                  |
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `onValueChange`                                 | Callback which returns `value, index`                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | **required**<br>function |
-| `items`                                         | The items for the component to render<br> - Each item should be in the following format:<br>`{label: 'Orange', value: 'orange', key: 'orange', color: 'orange'}`<br>- The label and the value are required<br>- The key and color are optional<br>- The key will be set to the label if not included<br>- The value can be any data type                                                                                                                                                                | **required**<br>array    |
+| `items`                                         | The items for the component to render<br> - Each item should be in the following format:<br>`{label: 'Orange', value: 'orange', key: 'orange', color: 'orange', displayValue: true}`<br>- `label` and `value` are required<br>- `key`, `color`, and `displayValue` are optional<br>- `key` will be set to equal `label` if not included<br>- `value` can be any data type<br>- If `displayValue` is truthy, the TextInput will display the `value` instead of the `label`                               | **required**<br>array    |
 | `placeholder`                                   | - An override for the default placeholder object with a label of `Select an item...` and a value of `null`<br>- An empty object can be used if you'd like to disable the placeholder entirely                                                                                                                                                                                                                                                                                                           | object                   |
 | `disabled`                                      | Disables interaction with the component                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | boolean                  |
 | `value`                                         | Will attempt to locate a matching item from the `items` array by checking each item's `value` property. If found, it will update the component to show that item as selected. If the value is not found, it will default to the first item.                                                                                                                                                                                                                                                             | any                      |
@@ -63,13 +63,16 @@ export const Dropdown = () => {
 | `pickerProps`                                   | Additional props to pass to the Picker (some props are used in core functionality so use this carefully)                                                                                                                                                                                                                                                                                                                                                                                                | object                   |
 | `Icon`                                          | Custom icon component to be rendered.<br>_More details in [styling](#styling)_                                                                                                                                                                                                                                                                                                                                                                                                                          | Component                |
 | `textInputProps`                                | Additional props to pass to the TextInput (some props are used in core functionality so use this carefully). This is iOS only unless `useNativeAndroidPickerStyle={false}`.                                                                                                                                                                                                                                                                                                                             | object                   |
+| `touchableWrapperProps`                         | Additional props to pass to the touchable wrapping the TextInput (some props are used in core functionality so use this carefully)                                                                                                                                                                                                                                                                                                                                                                      | object                   |
+| `onOpen`<br>                                    | Callback triggered right before the opening of the picker<br>_Not supported when `useNativeAndroidPickerStyle={true}`_                                                                                                                                                                                                                                                                                                                                                                                  | function                 |
 | `useNativeAndroidPickerStyle`<br>_Android only_ | The component defaults to using the native Android Picker in its un-selected state. Setting this flag to `false` will mimic the default iOS presentation where a tappable TextInput is displayed.<br>_More details in [styling](#styling)_                                                                                                                                                                                                                                                              | boolean                  |
-| `InputAccessoryView`<br>_iOS only_              | Replace the InputAcessoryView section (bar with tabbing arrown and Done button) of the opened picker with your own custom component. Can also return `null` here to hide completely. While this bar is typical on `select` elements on the web, the [interface guidelines](https://developer.apple.com/ios/human-interface-guidelines/controls/pickers/) does not include it. View the [snack](https://snack.expo.io/@lfkwtz/react-native-picker-select) to see examples on how this can be customized. | boolean                  |
+| `InputAccessoryView`<br>_iOS only_              | Replace the InputAcessoryView section (bar with tabbing arrown and Done button) of the opened picker with your own custom component. Can also return `null` here to hide completely. While this bar is typical on `select` elements on the web, the [interface guidelines](https://developer.apple.com/ios/human-interface-guidelines/controls/pickers/) does not include it. View the [snack](https://snack.expo.io/@lfkwtz/react-native-picker-select) to see examples on how this can be customized. | Component                  |
 | `doneText`<br>_iOS only_                        | "Done" default text on the modal. Can be overwritten here                                                                                                                                                                                                                                                                                                                                                                                                                                               | string                   |
 | `onUpArrow / onDownArrow`<br>_iOS only_         | Presence enables the corresponding arrow<br>- Closes the picker<br>- Calls the callback provided                                                                                                                                                                                                                                                                                                                                                                                                        | function                 |
 | `onDonePress`<br>_iOS only_                     | Callback when the 'Done' button is pressed                                                                                                                                                                                                                                                                                                                                                                                                                                                              | function                 |
-| `onOpen / onClose`<br>_iOS only_                | Callback triggered right before the opening or closing of the picker                                                                                                                                                                                                                                                                                                                                                                                                                                    | function                 |
+| `onClose`<br>_iOS only_                         | Callback triggered right before the closing of the picker                                                                                                                                                                                                                                                                                                                                                                                                                                               | function                 |
 | `modalProps`<br>_iOS only_                      | Additional props to pass to the Modal (some props are used in core functionality so use this carefully)                                                                                                                                                                                                                                                                                                                                                                                                 | object                   |
+| `touchableDoneProps`<br>_iOS only_              | Additional props to pass to the Done touchable (some props are used in core functionality so use this carefully)                                                                                                                                                                                                                                                                                                                                                                                        | object                   |
 
 ### Styling
 
@@ -95,7 +98,7 @@ All properties mentioned below must be nested under the `style` prop. Examples o
 
 ## Testing
 
-This component has been tested on React Native v0.51 - v0.59
+This component has been tested on React Native v0.51 - v0.61
 
 [![BrowserStack](https://i.imgur.com/cOdhMed.png)](https://www.browserstack.com/)
 

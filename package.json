@@ -1,6 +1,6 @@
 {
     "name": "react-native-picker-select",
-    "version": "6.3.0",
+    "version": "7.0.0",
     "description": "A Picker component for React Native which emulates the native <select> interfaces for each platform",
     "license": "MIT",
     "author": "Michael Lefkowitz <lefkowitz.michael@gmail.com>",
@@ -20,15 +20,14 @@
         "items"
     ],
     "files": [
-        "LICENSE",
-        "README.md",
         "index.d.ts",
-        "src/index.js"
+        "/src"
     ],
     "dependencies": {
         "lodash": "^4.0.0"
     },
     "devDependencies": {
+        "@types/react-native": "^0.60.22",
         "babel-jest": "^23.6.0",
         "babel-preset-react-native": "^4.0.1",
         "enzyme": "^3.7.0",
@@ -39,7 +38,7 @@
         "jest": "^23.6.0",
         "prettier": "^1.15.3",
         "pretty-quick": "^1.8.0",
-        "prop-types": "^15.6.2",
+        "prop-types": "^15.7.2",
         "react": "16.6.1",
         "react-dom": "^16.6.1",
         "react-native": "0.57.7",

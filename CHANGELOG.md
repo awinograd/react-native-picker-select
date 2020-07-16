@@ -1,3 +1,83 @@
+### 7.0.0
+
+##### Breaking Changes
+
+-   Deprecated prop `hideDoneBar` has been removed
+-   Deprecated prop `placeholderTextColor` has been removed
+-   Type definitions rewritten (#305)
+
+##### Chore
+
+-   Remove deprecated ColorPropType
+
+---
+
+### 6.6.0
+
+##### New
+
+-   Updated touchables to all be all TouchableOpacity (with override props available)
+-   Done text now animates on depress like native select dialog (#215)
+
+---
+
+### 6.5.1
+
+##### Bugfix
+
+-   Update iOS colors (#281)
+
+---
+
+### 6.5.0
+
+##### New
+
+-   If an item has the `displayValue` property set to true, the TextInput shows the item `value` instead of the item `label` (#279)
+
+---
+
+### 6.4.0
+
+##### New
+
+-   Opened up `onOpen` prop to now support Android when in headless or `useNativeAndroidPickerStyle={false}` mode
+
+---
+
+### 6.3.4
+
+##### Bugfix
+
+-   Fix for `onDonePress` regression (#236)
+-   "Done" Text element now set to `allowFontScaling={false}` (#247)
+
+---
+
+### 6.3.3
+
+##### Chore
+
+-   Split off styles into separate file
+
+---
+
+### 6.3.2
+
+##### Bugfix
+
+-   Update typescript definition file to add `InputAccessoryView`
+
+---
+
+### 6.3.1
+
+##### Bugfix
+
+-   Fix Done button on iPad (#209)
+
+---
+
 ### 6.3.0
 
 ##### New
