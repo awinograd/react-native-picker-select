@@ -1,14 +1,6 @@
 import React, { PureComponent } from 'react';
-import {
-    Keyboard,
-    Modal,
-    Picker,
-    Platform,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-} from 'react-native';
+import { Keyboard, Modal, Platform, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 import isEqual from 'lodash/isEqual';
 import { defaultStyles } from './styles';
 
