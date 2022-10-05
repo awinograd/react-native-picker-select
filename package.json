@@ -33,7 +33,6 @@
         "enzyme": "^3.7.0",
         "enzyme-adapter-react-16": "^1.7.0",
         "enzyme-to-json": "^3.3.5",
-        "eslint-config-ls-react": "https://github.com/lawnstarter/eslint-config-ls-react#3.0.0",
         "husky": "^2.4.0",
         "jest": "^23.6.0",
         "prettier": "^1.15.3",
